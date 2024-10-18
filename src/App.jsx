@@ -30,33 +30,56 @@ function App() {
   const handleUserphoneChange = (event) => {
     const inputValue = event.target.value;
   const sanitizedValue = inputValue.replace(/\D/g, '');
-  if (sanitizedValue.length <= 12) {
+  if (sanitizedValue.length <= 9) {
     setUserphone(sanitizedValue);
   }
   };
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~checkbox work~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  const handleCheckboxChange2 = (event) => {
-    const time = event.target.value;
-    if (event.target.checked) {
-      setSelectedWork((prevSelectedWork) => {
-        const updatedWork = [...prevSelectedWork, time];
-        console.log('Выбранные времена:', updatedWork.join(', '));
-        return updatedWork;
-      });
-    } else {
-      setSelectedWork((prevSelectedWork) => {
-        const updatedWork = prevSelectedWork.filter((t) => t !== time);
-        console.log('Выбранные времена:', updatedWork.join(', '));
-        return updatedWork;
-      });
-    }
-  };
+const [isTashkentChecked, setIsTashkentChecked] = useState(false);
+const [isOnlaynChecked, setIsOnlaynChecked] = useState(false);
 
+
+useEffect(() => {
+    const tashkentCheckbox = document.getElementById("Tashkent");
+    const onlaynCheckbox = document.getElementById("onlayn");
+
+    tashkentCheckbox.required = !isOnlaynChecked;
+    onlaynCheckbox.required = !isTashkentChecked;
+
+
+
+}, [isTashkentChecked, isOnlaynChecked]);
+const handleCheckboxChange2 = (event) => {
+  const time = event.target.value;
+
+  if (event.target.checked) {
+      setSelectedWork((prevSelectedWork) => {
+          const updatedWork = [...prevSelectedWork, time];
+          console.log('Выбранные времена:', updatedWork.join(', '));
+          return updatedWork;
+      });
+  } else {
+      setSelectedWork((prevSelectedWork) => {
+          const updatedWork = prevSelectedWork.filter((t) => t !== time);
+          console.log('Выбранные времена:', updatedWork.join(', '));
+          return updatedWork;
+      });
+  }
+
+  if (event.target.id === "Tashkent") {
+      setIsTashkentChecked(event.target.checked);
+  } else if (event.target.id === "onlayn") {
+      setIsOnlaynChecked(event.target.checked);
+  }
+};
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~send submit~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   const submit = (event) => {
     event.preventDefault();
-  
+    if (userphone.length < 9) {
+      alert('Telefon raqami kamida 9 ta raqamdan iborat bo\'lishi kerak.');
+      return;
+    }
     
     const fullMessage = `Name: ${username}, telephone: ${userphone}, Telegram : ${usertelegram}, Work:${selectedWork}`;
     console.log(fullMessage);
@@ -114,19 +137,29 @@ function App() {
              <h3 className='text-[20px] text-center mt-10 p992:mt-0'><b className='font-[TeletactileRus] text-green-500'>Kiberhavfsizlik</b> kursini o'qish uchun <b>Toshkent</b> shahriga kela olsangiz formani to'ldiring</h3>
             <input required className='p-2 text-black w-full rounded-xl outline-none border border-red-900' type="text" placeholder='ismingiz' onChange={handleUsernameChange} />
             <input className='p-2 w-full text-black rounded-xl outline-none border border-red-900' type="text" placeholder='Telegram' onChange={handleUsertelegramChange}/>
-            <input required className='p-2 text-black w-full rounded-xl outline-none border border-red-900' type="text" placeholder='998990000000' value={userphone}
+            <input required className='p-2 text-black w-full rounded-xl outline-none border border-red-900' type="text" placeholder='990000000' value={userphone}
               onInput={handleUserphoneChange}  />
             <span className='text-center'>Bizning kursimiz Toshkent shaharda joylashgan.<br/>Agar aniq kelib o’qiy olsangiz, Toshkentni belgilang.</span>
 
             <div className="checkbox-content-first flex justify-center gap-2 mx-auto">
             <div className='flex items-center gap-2'>
-             <input id="Tashkent" type="checkbox" value="Toshkentga bora olaman" onChange={handleCheckboxChange2}/>
-             <label htmlFor="Tashkent">Toshkentga bora olaman</label>
-            </div>
-            <div className='flex items-center gap-2'>
-             <input id="onlayn" type="checkbox" value="Onlayn" onChange={handleCheckboxChange2}/>
-             <label htmlFor="onlayn">Onlayn</label>
-            </div>
+                    <input
+                        id="Tashkent"
+                        type="checkbox"
+                        value="Toshkentga bora olaman"
+                        onChange={handleCheckboxChange2}
+                    />
+                    <label htmlFor="Tashkent">Toshkentga bora olaman</label>
+                </div>
+                <div className='flex items-center gap-2'>
+                    <input
+                        id="onlayn"
+                        type="checkbox"
+                        value="Onlayn"
+                        onChange={handleCheckboxChange2}
+                    />
+                    <label htmlFor="onlayn">Onlayn</label>
+                </div>
 
             </div>
             <span className='block w-[70%] linear mx-auto h-[2px]'></span>        
