@@ -140,7 +140,7 @@ function App() {
         </div>
 
         {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~right content~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
-        <div className="right-content pt-10  relative w-full  p992:w-[50%] flex flex-col gap-10 justify-center items-center px-2 p992:pr-16">
+        <div className="right-content pb-10  pt-10 p992:pt-0 relative w-full  p992:w-[50%] flex flex-col gap-10 justify-center items-center px-2 p992:pr-16">
                {/* <div><img className='max-w-[400px] p-2 w-full mt-[-30px] p768:mt-[-50px]' src={logo} alt="" /></div> */}
           <div className='flex gap-4 items-center'><img className=' w-16 p992:w-20' src={work} alt="" />
           <span className='text-[18px] font-[TeletactileRus]  p480:text-[24px] p992:text-[32px] text-white font-semibold  text-animated'>
