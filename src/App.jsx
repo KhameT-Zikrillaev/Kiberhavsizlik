@@ -134,7 +134,7 @@ const handleCheckboxChange2 = (event) => {
         <div className="left-content relative   z-20 w-full text-white flex flex-col gap-2  p480:gap-6  p992:gap-11 justify-center items-center p992:items-start   pl-0  p992:pl-10   p992:py-16 p992:w-[50%]  p992:h-screen ">
           {/* ~~~~~~~~~~~~~~~~~~form send~~~~~~~~~~~~~~~~~~~~ */}
         <form onSubmit={submit} className='flex relative z-20 flex-col gap-2 mt-2 p992:ml-[100px] p-2 max-w-[400px] w-full' action="">
-             <h3 className='text-[20px] text-center mt-10 p992:mt-0'><b className='font-[TeletactileRus] text-green-500'>Kiberhavfsizlik</b> kursini o'qish uchun <b>Toshkent</b> shahriga kela olsangiz formani to'ldiring</h3>
+             <h3 className='text-[20px] text-center  p992:mt-0'><b className='font-[TeletactileRus] text-green-500'>Kiberhavfsizlik</b> kursini o'qish uchun <b>Toshkent</b> shahriga kela olsangiz formani to'ldiring</h3>
             <input required className='p-2 text-black w-full rounded-xl outline-none border border-red-900' type="text" placeholder='ismingiz' onChange={handleUsernameChange} />
             <input className='p-2 w-full text-black rounded-xl outline-none border border-red-900' type="text" placeholder='Telegram' onChange={handleUsertelegramChange}/>
             <input required className='p-2 text-black w-full rounded-xl outline-none border border-red-900' type="text" placeholder='990000000' value={userphone}
@@ -173,14 +173,15 @@ const handleCheckboxChange2 = (event) => {
         </div>
 
         {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~right content~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
-        <div className="right-content pb-10  pt-10 p992:pt-0 relative w-full  p992:w-[50%] flex flex-col gap-10 justify-center items-center px-2 p992:pr-16">
+        <div className="right-content p992:pb-10  pt-10 p992:pt-0 relative w-full  p992:w-[50%] flex flex-col gap-10 justify-center items-center px-2 p992:pr-16">
                {/* <div><img className='max-w-[400px] p-2 w-full mt-[-30px] p768:mt-[-50px]' src={logo} alt="" /></div> */}
-          <div className='flex gap-4 items-center'><img className=' w-16 p992:w-20' src={work} alt="" />
+          <div className='flex gap-4 items-center'><img className='w-16 p992:w-20' src={work} alt="" />
           <span className='text-[18px] font-[TeletactileRus]  p480:text-[24px] p992:text-[32px] text-white font-semibold  text-animated'>
           Kiberhavfsizlikni<br />o'rganmoqchimisiz?
             </span>
            </div>
-          <ul className='flex relative z-10 mb-4 flex-col px-2 p480:px-0 gap-2 text-white font-semibold mt-[10px] p992:mt-[30px]'>
+
+          <ul className='flex relative z-10 mb-4 flex-col px-2 p480:px-0 gap-2 text-white font-semibold  p992:mt-[30px]'>
           <h2 className=' text-[20px] font-[TeletactileRus] mb-2 '>Bizning kursda:</h2>
             <li className='flex font-serif gap-2 items-center animated-gradient-text-li mr-[0px] p992:mr-[300px] p1200:mr-[0px]'><img className='circle-icon w-6' src={circle} alt="" />System administration</li>
             <li className='flex font-serif gap-2 items-center animated-gradient-text-li mr-[0px] p992:mr-[300px] p1200:mr-[0px]'><img className='circle-icon w-6' src={circle} alt="" />Virusologiya</li>
