@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+ --bg-left:linear-gradient(to right, #000000, #000000);
+ --bg-right:black;
+ --modal-btn-bg:
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+@font-face {
+  font-family: 'Gridtile' ;
+  src: url('/src/assets/fonts/Gridtile.ttf');
+}
+@font-face {
+  font-family: 'TeletactileRus' ;
+  src: url('/src/assets/fonts/TeletactileRus.ttf');
+}
+.wrapper{
+    width: 100vw;
+    background: linear-gradient(to right, white 45%, black 55%);
+}
+
+  @keyframes textPulse {
+    0%, 100% {
+      color: #000000; 
+      background-color: #05ec65; 
+    }
+    50% {
+      color: #ffffff; 
+      background-color: #105f00; 
+    }
+  }
+  @keyframes modalanimationactive {
+    0% {
+     margin-top: -100dvh;
+    }
+    100% {
+      margin-top: 0px;
+    }
+  }
+
+
+
+
+
+  @keyframes modalanimationnoneactive {
+    0% {
+      margin-top: 0px;
+    }
+    100% {
+      margin-top: -100dvh;
+    }
+  }
+  .modal-animation-active{
+    animation:modalanimationactive 0.5s ease-in-out forwards;
+  }
+  .modal-animation-nonactive{
+    animation:modalanimationnoneactive 0.5s ease-in-out forwards;
+  }
+  .animate-text-pulse {
+    animation: textPulse 5s ease-in-out infinite;
+  }
+  .left-content{
+    background: var(--bg-left)
+  }
+  .right-content{
+    background: var(--bg-right);
+  }
+/* .right-img{
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 1) 100%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 1) 100%);
+} */
+
+  @keyframes gradient-text-li {
+    0% {
+      background-position: 20% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 20% 50%;
+    }
+  }
+  .text-prof {
+    margin-left: 20px;
+  }
+
+
+  .animated-gradient-text-li {
+    background: linear-gradient(270deg, #000000, #00ffdd, #00FF7F, #007FFF, #7F00FF);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-text-li 10s ease infinite;
+  }
+  
+  .text-animated {
+    animation: shake 2s ease-in-out infinite;
+  }
+  
+  @keyframes shake {
+    0% {
+      transform: translateX(0); /* Начальное положение */
+    }
+    10% {
+      transform: translateX(-5px); /* Немного влево */
+    }
+    20% {
+      transform: translateX(5px); /* Немного вправо */
+    }
+    30% {
+      transform: translateX(-3px); /* Немного влево */
+    }
+    40% {
+      transform: translateX(3px); /* Немного вправо */
+      color:#14ba30
+    }
+    50% {
+      transform: translateX(0); /* Возвращение к начальному положению */
+    }
+    100% {
+      transform: translateX(0); /* Заключительное положение */
+    }
+  }
+  .circle-icon{
+    animation: circlerotate 4s linear infinite;
+  }
+  @keyframes circlerotate {
+    0% {
+        transform: rotate(0deg); /* Добавляем единицы измерения - градусы */
+    }
+    100% {
+        transform: rotate(360deg); /* Полный оборот */
+    }
+}
+
+.linear{
+  animation: rgbaKeys 10s infinite;
+  opacity: 50%;
+}
+
+@keyframes rgbaKeys{
+  0%{
+      background-color: red; 
+  }
+  25%{
+      background-color: rgb(0, 132, 255); 
+  }
+  50%{
+      background-color: rgb(255, 0, 234); 
+  }
+  75%{
+      background-color: rgb(0, 255, 55); 
+  }
+  100%{
+      background-color: rgb(38, 0, 255); 
+  }
+}
